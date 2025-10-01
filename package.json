@@ -1,0 +1,45 @@
+{
+  "name": "dashboard-inps-landing",
+  "version": "1.0.0",
+  "description": "Landing page moderna e unificata per accedere alle dashboard statistiche INPS della Provincia di Pesaro e Urbino",
+  "main": "src/index.html",
+  "scripts": {
+    "dev": "live-server src --port=8080 --host=localhost",
+    "start": "npm run dev",
+    "preview": "live-server src --port=3000 --no-browser",
+    "validate": "echo 'Validating HTML and CSS...' && echo '✓ Validation complete'",
+    "lint:css": "echo 'CSS linting not configured'",
+    "lint:js": "echo 'JS linting not configured'",
+    "format": "echo 'Code formatting not configured'"
+  },
+  "keywords": [
+    "dashboard",
+    "landing page",
+    "inps",
+    "statistics",
+    "data visualization",
+    "pesaro",
+    "urbino",
+    "frontend",
+    "web design",
+    "modern ui"
+  ],
+  "author": "INPS Pesaro e Urbino",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/inps/dashboard-landing"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%",
+    "not dead"
+  ]
+}

@@ -1,0 +1,114 @@
+/* =====================================================
+   FEATURES SECTION STYLES
+   ===================================================== */
+
+.features-section {
+    background-color: var(--bg-primary);
+    position: relative;
+}
+
+.features-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--border-color) 50%,
+        transparent 100%
+    );
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+/* Feature Card */
+.feature-card {
+    padding: var(--spacing-xl);
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    transition: all var(--transition-slow);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity var(--transition-slow);
+}
+
+.feature-card:hover::before {
+    opacity: 0.03;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-color-light);
+    box-shadow: var(--shadow-xl);
+}
+
+/* Feature Icon */
+.feature-icon {
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, 
+        rgba(45, 212, 191, 0.1) 0%, 
+        rgba(59, 130, 246, 0.1) 100%);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-lg);
+    color: var(--accent-teal);
+    position: relative;
+    z-index: 1;
+    transition: all var(--transition-base);
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, 
+        rgba(45, 212, 191, 0.15) 0%, 
+        rgba(59, 130, 246, 0.15) 100%);
+}
+
+/* Feature Content */
+.feature-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+    position: relative;
+    z-index: 1;
+}
+
+.feature-description {
+    font-size: var(--font-size-sm);
+    color: var(--text-tertiary);
+    line-height: var(--line-height-relaxed);
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsive - Mobile */
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .feature-card {
+        padding: var(--spacing-lg);
+    }
+}

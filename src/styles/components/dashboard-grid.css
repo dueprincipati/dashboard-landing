@@ -1,0 +1,234 @@
+/* =====================================================
+   DASHBOARD GRID STYLES
+   ===================================================== */
+
+.dashboards-section {
+    background-color: var(--bg-primary);
+    position: relative;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+/* Dashboard Card */
+.dashboard-card {
+    position: relative;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-xl);
+    transition: all var(--transition-slow);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.dashboard-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity var(--transition-slow);
+    z-index: 0;
+}
+
+.dashboard-card:hover::before {
+    opacity: 0.05;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--border-color-light);
+    box-shadow: var(--shadow-2xl);
+}
+
+/* Card Glow Effect */
+.card-glow {
+    position: absolute;
+    inset: -2px;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-xl);
+    opacity: 0;
+    filter: blur(20px);
+    transition: opacity var(--transition-slow);
+    z-index: -1;
+}
+
+.dashboard-card:hover .card-glow {
+    opacity: 0.4;
+}
+
+/* Card Icon */
+.card-icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, 
+        rgba(45, 212, 191, 0.1) 0%, 
+        rgba(45, 212, 191, 0.05) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-lg);
+    color: var(--icon-color, var(--accent-teal));
+    position: relative;
+    z-index: 1;
+    transition: all var(--transition-base);
+}
+
+.dashboard-card:hover .card-icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 30px rgba(45, 212, 191, 0.3);
+}
+
+/* Card Content */
+.card-title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+    position: relative;
+    z-index: 1;
+}
+
+.card-description {
+    font-size: var(--font-size-sm);
+    color: var(--text-tertiary);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    z-index: 1;
+}
+
+/* Card Stats */
+.card-stats {
+    display: flex;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-md) 0;
+    margin-bottom: var(--spacing-lg);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+    z-index: 1;
+}
+
+.card-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stat-value {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+}
+
+.stat-label {
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Card Link */
+.card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--accent-teal);
+    transition: gap var(--transition-base);
+    position: relative;
+    z-index: 1;
+}
+
+.dashboard-card:hover .card-link {
+    gap: var(--spacing-sm);
+}
+
+.card-link svg {
+    transition: transform var(--transition-base);
+}
+
+.dashboard-card:hover .card-link svg {
+    transform: translateX(4px);
+}
+
+/* Category Filter Effect */
+.dashboard-card[data-category="previdenza"] .card-icon {
+    color: var(--accent-teal);
+}
+
+.dashboard-card[data-category="lavoro"] .card-icon {
+    color: var(--accent-blue);
+}
+
+.dashboard-card[data-category="servizi"] .card-icon {
+    color: var(--accent-green);
+}
+
+.dashboard-card[data-category="assistenza"] .card-icon {
+    color: var(--accent-pink);
+}
+
+.dashboard-card[data-category="legale"] .card-icon {
+    color: var(--accent-purple);
+}
+
+.dashboard-card[data-category="finanza"] .card-icon {
+    color: var(--accent-cyan);
+}
+
+.dashboard-card[data-category="gestione"] .card-icon {
+    color: var(--accent-cyan);
+}
+
+.dashboard-card[data-category="analisi"] .card-icon {
+    color: var(--accent-orange);
+}
+
+/* Responsive - Tablet */
+@media (max-width: 1024px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: var(--spacing-lg);
+    }
+    
+    .dashboard-card {
+        padding: var(--spacing-lg);
+    }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .card-stats {
+        flex-wrap: wrap;
+    }
+}
+
+/* Responsive - Small Mobile */
+@media (max-width: 480px) {
+    .dashboard-card {
+        padding: var(--spacing-md);
+    }
+    
+    .card-icon {
+        width: 56px;
+        height: 56px;
+    }
+    
+    .card-title {
+        font-size: var(--font-size-lg);
+    }
+}
